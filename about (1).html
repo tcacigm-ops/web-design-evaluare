@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tcaci Dumitru — Despre Mine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav id="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">T.<span>Dumitru</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="about.html" class="active">Despre Mine</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ABOUT HERO — grid layout -->
+      <div class="about-hero">
+
+        <!-- Photo — ::before / ::after decorative pseudo-elements in CSS -->
+        <div class="about-photo-wrap">
+          <img src="IMG_2270_2.JPG" alt="Tcaci Dumitru">
+        </div>
+
+        <!-- Bio -->
+        <div class="about-text">
+          <p class="section-label">Despre Mine</p>
+          <h1>Tcaci<br>Dumitru</h1>
+          <p>
+            Sunt student în ultimul an la Finanțe și Bănci la Universitatea de Vest din Timișoara,
+            originar din Chișinău, Moldova. Alături de studii, lucrez ca operator și consultant
+            ajutând companiile de educație online să crească — ceea ce înseamnă că îmi petrec
+            zilele gândindu-mă atât la sisteme financiare, cât și la mecanismele de afaceri ale
+            scalării produselor digitale.
+          </p>
+          <p>
+            Crescând în Chișinău, am primit devreme o educație nefiltrată în realitatea economică.
+            Moldova se află la intersecția economiei de tranziție est-europene, a volatilității
+            valutare și a presiunilor de zi cu zi ale unei piețe în curs de dezvoltare — un context
+            care face ca conceptele abstracte precum inflația, fuga de capital și fragilitatea
+            bancară să pară foarte concrete.
+          </p>
+          <p>
+            Călătoria este o altă constantă în viața mea. Mutându-mă între Chișinău, Timișoara și
+            oriunde mă duce munca, m-am obișnuit cu ambiguitatea și sunt cu adevărat curios despre
+            cum funcționează diferitele economii și culturi financiare pe teren.
+          </p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;">Contactează-mă</a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- KEY POINTS — styled list with ::before pseudo-elements -->
+      <section class="section" style="padding-top: 0;">
+        <p class="section-label">Puncte Cheie</p>
+        <h2>Ce mă definește</h2>
+
+        <ul class="key-points">
+          <li>
+            <span class="icon">🎓</span>
+            <span><strong>Educație solidă</strong> — Finanțe și Bănci, UVT Timișoara (2022–2025). Cursuri relevante: Politică Monetară, Banking Comercial, Piețe Financiare, Analiză de Investiții.</span>
+          </li>
+          <li>
+            <span class="icon">💼</span>
+            <span><strong>Experiență reală</strong> — Operator și consultant pentru companii de educație online. Scalare de venituri, optimizare de funnel, sisteme operaționale, economii de unitate.</span>
+          </li>
+          <li>
+            <span class="icon">🌍</span>
+            <span><strong>Perspectivă internațională</strong> — Originar din Chișinău, Moldova. Experiență directă cu dinamicile economice ale piețelor emergente din Europa de Est.</span>
+          </li>
+          <li>
+            <span class="icon">✈️</span>
+            <span><strong>Pasionat de călătorii</strong> — Deplasările între Chișinău, Timișoara și alte destinații mi-au format o curiozitate autentică față de modul în care funcționează diferite sisteme economice.</span>
+          </li>
+          <li>
+            <span class="icon">📊</span>
+            <span><strong>Gândire analitică</strong> — Capacitatea de a lega modele abstracte de rezultate concrete. Întotdeauna caut conexiunea dintre cifre și deciziile umane din spatele lor.</span>
+          </li>
+          <li>
+            <span class="icon">🚀</span>
+            <span><strong>Orientat spre creștere</strong> — Fie că este vorba de un portofoliu de investiții, o afacere online sau o carieră în domeniu, abordez fiecare provocare cu mentalitate de scalare.</span>
+          </li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <!-- CV GRID — grid layout, data-year attribute used in CSS ::after -->
+      <section class="section" style="padding-top: 0;">
+        <p class="section-label">Educație &amp; Experiență</p>
+        <h2>Parcurs</h2>
+
+        <div class="cv-grid">
+          <div class="cv-card" data-year="2022–2025">
+            <h4>B.Sc. Finanțe și Bănci</h4>
+            <span class="meta">UVT — FEAA, Timișoara</span>
+            <p>Politică Monetară, Banking Comercial, Piețe Financiare, Analiză de Investiții, Finanțe Internaționale, Metode Cantitative.</p>
+          </div>
+
+          <div class="cv-card" data-year="2023–prezent">
+            <h4>Operator &amp; Consultant — Educație Online</h4>
+            <span class="meta">Independent</span>
+            <p>Scalare venituri și operațiuni pentru companii de educație online. Strategii de creștere, arhitectură funnel, economii de unitate, sisteme operaționale.</p>
+          </div>
+
+          <div class="cv-card" data-year="2018–2022">
+            <h4>Liceu</h4>
+            <span class="meta">Chișinău, Moldova</span>
+            <p>Profil matematică-informatică. Bază solidă în gândire analitică și rezolvare de probleme cantitative.</p>
+          </div>
+
+          <div class="cv-card" data-year="2024">
+            <h4>CFA Investment Foundations</h4>
+            <span class="meta">CFA Institute</span>
+            <p>Introducere în industria globală de investiții: etică, gestiunea portofoliului, raportare financiară.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- SKILLS — flexbox layout -->
+      <section class="section" style="padding-top: 0; padding-bottom: 4rem;">
+        <p class="section-label">Competențe</p>
+        <h2>Skills</h2>
+        <div class="skills-flex">
+          <span class="skill-chip">Analiză Financiară</span>
+          <span class="skill-chip">Strategie de Creștere</span>
+          <span class="skill-chip">Economii de Unitate</span>
+          <span class="skill-chip">Optimizare Funnel</span>
+          <span class="skill-chip">Politică Monetară</span>
+          <span class="skill-chip">Reglementare Bancară</span>
+          <span class="skill-chip">Excel / Modelare</span>
+          <span class="skill-chip">Bloomberg BMC</span>
+          <span class="skill-chip">Română (nativ)</span>
+          <span class="skill-chip">Rusă (nativ)</span>
+          <span class="skill-chip">Engleză (avansat)</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">2025 Tcaci Dumitru — Finance &amp; Banking Blog · UVT Timișoara</span>
+        <nav class="footer-links">
+          <a href="index.html">Acasă</a>
+          <a href="about.html">Despre Mine</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

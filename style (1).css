@@ -1,0 +1,898 @@
+/* ============================================================
+   style.css — Tcaci Dumitru | Web Design Lab
+   Covers: element, class, ID, attribute selectors
+           px, em, rem, %, vw/vh units
+           float, flexbox, grid layouts
+           :hover, :focus, :nth-child, ::before, ::after
+   ============================================================ */
+
+/* ─── 1. CSS CUSTOM PROPERTIES (variables) ─── */
+:root {
+  --clr-bg:        #0d0d0d;
+  --clr-surface:   #141414;
+  --clr-surface2:  #1c1c1c;
+  --clr-border:    #2a2a2a;
+  --clr-accent:    #c8a96e;        /* warm gold */
+  --clr-accent2:   #e8c98e;
+  --clr-text:      #e8e0d0;
+  --clr-muted:     #888070;
+  --clr-white:     #f5f0e8;
+  --clr-danger:    #c0392b;
+
+  --ff-display:    'Cormorant Garamond', Georgia, serif;
+  --ff-body:       'DM Sans', system-ui, sans-serif;
+  --ff-mono:       'DM Mono', monospace;
+
+  --radius:        4px;
+  --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow:        0 8px 32px rgba(0,0,0,0.5);
+  --max-w:         1100px;
+}
+
+/* ─── 2. RESET & BASE (element selectors) ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;          /* rem base */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--ff-body);
+  font-size: 1rem;          /* rem unit */
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--clr-white);
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }   /* vw unit */
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+h3 { font-size: 1.4rem; }                         /* rem unit */
+
+p  { margin-bottom: 1.1em; color: var(--clr-text); } /* em unit */
+
+a  {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+/* element selector: pseudo-class */
+a:hover { color: var(--clr-accent2); }
+
+img { max-width: 100%; display: block; }
+
+ul  { list-style: none; }
+
+/* ─── 3. UTILITY CLASSES (class selectors) ─── */
+.container {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 1.5rem;   /* rem */
+}
+
+.section {
+  padding-block: 5rem;      /* rem */
+}
+
+.section-label {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;         /* rem */
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-label::before {    /* ::before pseudo-element */
+  content: "//  ";
+  opacity: 0.5;
+}
+
+.accent { color: var(--clr-accent); }
+
+.tag {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(200, 169, 110, 0.12);
+  color: var(--clr-accent);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  padding: 0.2em 0.6em;
+  border-radius: var(--radius);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--clr-border);
+  margin-block: 3rem;
+}
+
+/* ─── 4. NAVIGATION ─── */
+/* ID selector */
+#site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--clr-border);
+  height: 64px;             /* px unit */
+  display: flex;
+  align-items: center;
+}
+
+#site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* class selector */
+.nav-logo {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  color: var(--clr-white);
+  letter-spacing: 0.02em;
+}
+
+.nav-logo span {
+  color: var(--clr-accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;                /* rem */
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  padding-bottom: 2px;      /* px */
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+  position: relative;
+}
+
+/* ::after pseudo-element on nav links */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--clr-accent);
+  transition: width var(--transition);
+}
+
+/* :hover pseudo-class */
+.nav-links a:hover {
+  color: var(--clr-white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* class selector: active state */
+.nav-links a.active {
+  color: var(--clr-accent);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ─── 5. BUTTONS (class + attribute selectors) ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ff-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.85rem 2rem;    /* rem */
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--clr-accent);
+  color: #0d0d0d;
+  border-color: var(--clr-accent);
+}
+
+/* :hover pseudo-class */
+.btn-primary:hover {
+  background: var(--clr-accent2);
+  border-color: var(--clr-accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 169, 110, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+}
+
+.btn-outline:hover {
+  background: rgba(200, 169, 110, 0.08);
+  transform: translateY(-2px);
+}
+
+/* attribute selector — targets buttons with type="submit" */
+button[type="submit"] {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 1rem 2rem;
+}
+
+button[type="submit"]:hover {
+  letter-spacing: 0.18em;
+}
+
+/* ─── 6. SLIDER / HERO ─── */
+/* ID selector */
+#hero-slider {
+  position: relative;
+  height: 100vh;            /* vh unit */
+  min-height: 560px;        /* px unit */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slider-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.85) 100%),
+    url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  animation: slowZoom 12s ease-out forwards;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.0); }
+}
+
+.slider-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;         /* px */
+}
+
+.slider-content .section-label {
+  animation: fadeUp 0.8s 0.2s both;
+}
+
+.slider-content h1 {
+  animation: fadeUp 0.8s 0.4s both;
+  margin-bottom: 1.25rem;
+}
+
+.slider-content p {
+  font-size: 1.15rem;
+  color: rgba(232, 224, 208, 0.8);
+  max-width: 540px;         /* px */
+  animation: fadeUp 0.8s 0.6s both;
+  margin-bottom: 2rem;
+}
+
+.slider-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.8s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* slider dot indicators */
+.slider-dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.slider-dots span {
+  width: 6px;               /* px */
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(200,169,110,0.4);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+/* :first-child pseudo-class */
+.slider-dots span:first-child {
+  width: 24px;
+  border-radius: 3px;
+  background: var(--clr-accent);
+}
+
+/* ─── 7. POSTS GRID (grid layout) ─── */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* grid */
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ::before pseudo-element — gold top accent bar */
+.post-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--clr-accent), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+/* :hover pseudo-class */
+.post-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200, 169, 110, 0.3);
+  box-shadow: var(--shadow);
+}
+
+.post-card:hover::before {
+  opacity: 1;
+}
+
+.post-card-img {
+  height: 200px;            /* px */
+  overflow: hidden;
+}
+
+.post-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(20%);
+}
+
+.post-card:hover .post-card-img img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+.post-card-body {
+  padding: 1.5rem;          /* rem */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.post-meta time {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  color: var(--clr-muted);
+}
+
+.post-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--clr-white);
+}
+
+.post-card p {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.read-more {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+/* ::after pseudo-element — arrow */
+.read-more::after {
+  content: "→";
+  transition: transform var(--transition);
+}
+
+.read-more:hover::after {
+  transform: translateX(4px);
+}
+
+/* ─── 8. FEATURED POST (float layout) ─── */
+.featured-post {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+
+/* float layout demo */
+.featured-post-img {
+  float: right;             /* float */
+  width: 42%;               /* % unit */
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.featured-post-img img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.featured-post::after {     /* clearfix */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.featured-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 1rem;
+}
+
+/* ::before pseudo-element — star icon */
+.featured-label::before {
+  content: "★";
+  font-size: 0.7rem;
+}
+
+/* ─── 9. ABOUT PAGE ─── */
+.about-hero {
+  padding-top: calc(64px + 4rem);  /* calc() with px + rem */
+  padding-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  position: relative;
+}
+
+/* ::before pseudo-element — decorative border offset */
+.about-photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -12px;             /* px */
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  border-radius: var(--radius);
+  pointer-events: none;
+}
+
+/* ::after pseudo-element — bottom label */
+.about-photo-wrap::after {
+  content: "Tcaci Dumitru · 2025";
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--clr-muted);
+}
+
+.about-photo-wrap img {
+  width: 100%;
+  height: 480px;            /* px */
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
+  filter: grayscale(15%);
+  transition: filter var(--transition);
+}
+
+/* :hover pseudo-class */
+.about-photo-wrap:hover img {
+  filter: grayscale(0%);
+}
+
+/* styled list — class selector */
+.key-points {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.key-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  transition: border-color var(--transition), background var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ::before pseudo-element — left colored bar */
+.key-points li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;               /* px */
+  background: var(--clr-accent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+/* :hover pseudo-class */
+.key-points li:hover {
+  border-color: rgba(200, 169, 110, 0.3);
+  background: var(--clr-surface2);
+}
+
+.key-points li:hover::before {
+  opacity: 1;
+}
+
+/* :nth-child pseudo-class */
+.key-points li:nth-child(even) {
+  background: var(--clr-surface2);
+}
+
+.key-points li .icon {
+  color: var(--clr-accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* CV sections flexbox layout */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.cv-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition), transform var(--transition);
+  position: relative;
+}
+
+.cv-card::after {
+  content: attr(data-year);   /* attribute selector value in pseudo-element */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: var(--clr-muted);
+  letter-spacing: 0.08em;
+}
+
+.cv-card:hover {
+  border-color: rgba(200, 169, 110, 0.3);
+  transform: translateY(-3px);
+}
+
+.cv-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  padding-right: 3rem;
+}
+
+.cv-card .meta {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  color: var(--clr-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.cv-card p {
+  font-size: 0.87rem;
+  color: var(--clr-muted);
+  margin: 0;
+}
+
+/* skills flex wrap */
+.skills-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skill-chip {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 2rem;        /* px — pill shape */
+  color: var(--clr-muted);
+  background: var(--clr-surface);
+  transition: all var(--transition);
+}
+
+.skill-chip:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+  background: rgba(200, 169, 110, 0.06);
+}
+
+/* ─── 10. CONTACT PAGE ─── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;   /* grid layout */
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--clr-border);
+  font-size: 0.9rem;
+}
+
+/* :last-child pseudo-class */
+.contact-detail:last-of-type {
+  border-bottom: none;
+}
+
+.contact-detail .icon {
+  width: 36px;              /* px */
+  height: 36px;
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ─── FORM ─── */
+.contact-form {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2.5rem;          /* rem */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* element selector */
+label {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* attribute selectors — different input types */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  padding: 0.85rem 1rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+/* :focus pseudo-class */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.12);
+}
+
+/* attribute selector — placeholder */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  color: var(--clr-muted);
+  opacity: 0.6;
+}
+
+textarea {
+  min-height: 140px;        /* px */
+  resize: vertical;
+}
+
+/* attribute selector — required fields */
+input[required] + label::after,
+textarea[required] + label::after {
+  content: " *";
+  color: var(--clr-accent);
+}
+
+/* confirmation message — ID selector */
+#form-confirm {
+  display: none;
+  background: rgba(200, 169, 110, 0.1);
+  border: 1px solid rgba(200, 169, 110, 0.4);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--clr-accent);
+  text-align: center;
+}
+
+/* class added by JS */
+#form-confirm.visible {
+  display: block;
+  animation: fadeUp 0.4s both;
+}
+
+/* ─── 11. FOOTER ─── */
+/* ID selector */
+#site-footer {
+  border-top: 1px solid var(--clr-border);
+  padding-block: 2.5rem;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  color: var(--clr-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ::before pseudo-element on footer copy */
+.footer-copy::before {
+  content: "© ";
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--clr-accent);
+}
+
+/* ─── 12. PAGE WRAPPER (accounts for fixed nav) ─── */
+.page-content {
+  padding-top: 64px;        /* px — same as nav height */
+}
+
+/* ─── 13. RESPONSIVE (mobile) ─── */
+@media (max-width: 768px) {
+  .about-hero          { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-layout      { grid-template-columns: 1fr; gap: 2rem; }
+  .posts-grid          { grid-template-columns: 1fr; }
+  .featured-post-img   { float: none; width: 100%; margin-left: 0; margin-bottom: 1.5rem; }
+  .nav-links           { gap: 1rem; }
+  .cv-grid             { grid-template-columns: 1fr; }
+  .slider-actions      { flex-direction: column; }
+  .footer-inner        { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .nav-links a         { font-size: 0.72rem; }
+  .contact-form        { padding: 1.5rem; }
+}

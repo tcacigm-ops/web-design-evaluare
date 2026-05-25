@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tcaci Dumitru — Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — ID selector: #site-nav -->
+  <nav id="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">T.<span>Dumitru</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Acasă</a></li>
+        <li><a href="about.html">Despre Mine</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER — ID selector: #hero-slider -->
+  <section id="hero-slider">
+    <div class="slider-bg"></div>
+    <div class="container">
+      <div class="slider-content">
+        <p class="section-label">Finance &amp; Banking · UVT 2025</p>
+        <h1>Gânduri despre piețe, bănci și creștere</h1>
+        <p>
+          Un blog despre finanțe, economie și lecțiile pe care le înveți atunci când
+          îmbini studiul academic cu activitatea antreprenorială. Scris din Timișoara
+          și Chișinău, pentru oricine vrea să înțeleagă cum funcționează cu adevărat banii.
+        </p>
+        <div class="slider-actions">
+          <a href="#posts" class="btn btn-primary">Citește Articolele</a>
+          <a href="about.html" class="btn btn-outline">Despre Mine</a>
+        </div>
+      </div>
+    </div>
+    <div class="slider-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-content">
+    <div class="container">
+
+      <!-- FEATURED POST — float layout -->
+      <section class="section" id="posts">
+        <p class="section-label">Articol Recomandat</p>
+
+        <article class="featured-post">
+          <div class="featured-post-img">
+            <img
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
+              alt="European Central Bank">
+          </div>
+          <span class="featured-label">Featured</span>
+          <div class="post-meta">
+            <span class="tag">Politică Monetară</span>
+            <time datetime="2025-03-04">4 Martie 2025</time>
+          </div>
+          <h2>Dilema BCE: Reducerea Ratelor într-o Europă Incertă</h2>
+          <p>
+            Când Banca Centrală Europeană s-a reunit la Frankfurt în februarie, agenda a fost dominată de o
+            singură întrebare: cât de rapid și cât de mult ar trebui să scadă ratele? Inflația europeană a
+            scăzut impresionant față de vârful de peste 10% din 2022, dar sub cifrele de titlu, inflația din
+            servicii rămâne ridicată, creșterea salariilor din Germania continuă să depășească productivitatea.
+          </p>
+          <p>
+            Pentru studenții la politică monetară, acest moment este un studiu de caz manual despre limitele
+            ghidajului anticipativ. BCE a convins piețele că va menține ratele mai ridicate mai mult timp —
+            și apoi a pivotat. Înțelegerea motivului acestei schimbări este exact ceea ce diferențiază un
+            bun absolvent de finanțe de unul excelent.
+          </p>
+          <a href="#" class="read-more">Citește mai mult</a>
+        </article>
+
+        <!-- POSTS GRID — grid layout -->
+        <p class="section-label">Toate Articolele</p>
+        <div class="posts-grid">
+
+          <article class="post-card">
+            <div class="post-card-img">
+              <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&q=80" alt="Yield curve">
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="tag">Piețe de Capital</span>
+                <time datetime="2025-02-18">18 Feb 2025</time>
+              </div>
+              <h3>De Ce Curba Randamentelor Contează (Chiar și Când Greșește)</h3>
+              <p>Curba randamentelor a fost inversată mai mult decât orice perioadă din istoria modernă, iar recesiunea prezisă nu a sosit.</p>
+              <a href="#" class="read-more">Citește mai mult</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-card-img">
+              <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=600&q=80" alt="Bank building">
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="tag">Banking</span>
+                <time datetime="2025-02-03">3 Feb 2025</time>
+              </div>
+              <h3>Basel III Final: Ce Înseamnă pentru Băncile Românești</h3>
+              <p>Regulile finale Basel III se apropie de implementare în UE. Efectele asupra instituțiilor din Europa Centrală și de Est sunt esențiale de înțeles.</p>
+              <a href="#" class="read-more">Citește mai mult</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-card-body" style="padding-top: 1.5rem;">
+              <div class="post-meta">
+                <span class="tag">Finanțe Personale</span>
+                <time datetime="2025-01-20">20 Ian 2025</time>
+              </div>
+              <h3>Dobânda Compusă Este Plictisitoare. Exact Asta o Face Puternică.</h3>
+              <p>Toți cei din finanțe cunosc formula dobânzii compuse. Nu toți o internalizează. Există un decalaj ciudat între cunoașterea intelectuală și acțiunea comportamentală.</p>
+              <a href="#" class="read-more">Citește mai mult</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-card-img">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="Office work">
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="tag">Carieră</span>
+                <time datetime="2025-01-07">7 Ian 2025</time>
+              </div>
+              <h3>Ce Am Învățat Scalând Companii de Educație Online</h3>
+              <p>Lucrul cu companii de educație online mi-a predat lucruri pe care nicio sală de curs nu le putea: cum unitățile economice conduc deciziile.</p>
+              <a href="#" class="read-more">Citește mai mult</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">2025 Tcaci Dumitru — Finance &amp; Banking Blog · UVT Timișoara</span>
+        <nav class="footer-links">
+          <a href="index.html">Acasă</a>
+          <a href="about.html">Despre Mine</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
